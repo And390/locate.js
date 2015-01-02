@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Locate.js example</title>
+    <script type="text/javascript" src="../locate.js"></script>
+    <script type="text/javascript" src="example.js"></script>
+</head>
+<body>
+
+
+<div class="panel">
+    <span locate="parent.maxR=r();" locate2="alignBottom('nameInput');">enter your name:</span>
+    <span locate="if (r()>parent.maxR) parent.maxR=r();" locate2="alignBottom('emailInput');">enter your email:</span>
+    <span locate="if (r()>parent.maxR) parent.maxR=r();" locate2="alignBottom('phoneInput');">enter your telephone:</span>
+    <input type="text" id="nameInput" locate="x=parent.maxR+CX; y=0; w=200;">
+    <input type="text" id="emailInput" locate="x=prev.x; y=prev.b()+DY; w=200;">
+    <input type="checkbox" id="emailMeInput" locate="x=prev.r()-w; y=prev.b()+DY/2;">
+    <span locate="x=prev.x-DX-w; alignMiddle(prev);">send me news</span>
+    <span locate="x=prev.prev.prev.x; y=prev.b()+DY; ">+</span>
+    <input type="text" id="phoneCodeInput" locate="x=prev.r()+DX; y=prev.y; w=30;">
+    <input type="text" id="phoneInput" locate="x=prev.r()+DX; y=prev.y; w=parent.iw-x;">
+    <textarea id="message" locate="x=0; y=prev.b()+DY; w=parent.iw; h=80;"></textarea>
+    <input type="submit" id="submit" value="Send" locate="x=parent.iw-w; y=prev.b()+DY;">
+</div>
+
+
+<style type=text/css>
+    .panel  {
+        background-color: #e5f3fa;
+        padding: 8px;
+    }
+</style>
+
+
+<script>
+    var DX = 4;   // x-margin between elements
+    var DY = 8;   // y-margin between inputs
+    var CX = DX+20;  // center space width
+</script>
+
+
+</body>
+</html>

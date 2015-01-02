@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Locate.js example</title>
+    <script type="text/javascript" src="../locate.js"></script>
+    <script type="text/javascript" src="example.js"></script>
+</head>
+<body>
+
+
+<div id="header" locate="w=parent.iw; h=100; x=0; y=0;">
+    <span locate="x=parent.iw/2-w/2; y=parent.ih/2-h/2;">Header</span>
+</div>
+
+<div id="menu" locate="x=0; y=prev.b()+30; if (parent.iw<900) w=parent.iw/3; else w=300;" style="margin-right: 30px">
+    <span locate="x=0; y=0;         ">Menu item 1</span>
+    <span locate="x=0; y=prev.b()+5;">Menu item 2</span>
+    <span locate="x=0; y=prev.b()+5;">Menu item 3</span>
+    <span locate="x=0; y=prev.b()+5;">Menu item 4</span>
+    <span locate="x=0; y=prev.b()+5;">Menu item 5</span>
+    <span locate="x=0; y=prev.b()+5;">Menu item 6</span>
+    <span locate="x=0; y=prev.b()+5;">Menu item 7</span>
+    <span locate="x=0; y=prev.b()+5;">Menu item 8</span>
+</div>
+
+<div id="container" locate="x=prev.r(); y=prev.y; w=parent.iw-x; calcHbyW();">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+
+<div id="footer" locate="w=parent.iw; h=100; x=0; y=Math.max(prev.b(), prev.prev.b())+30; if (b()<parent.ih) y=parent.ih-h;">
+    <span locate="x=parent.iw/2-w/2; y=parent.ih/2-h/2;">Footer</span>
+</div>
+
+
+<style type=text/css>
+    #header  {
+        background-color: #FFE0E0;
+    }
+    #header span  {
+        background-color: #F8D0D0;
+    }
+    #footer  {
+        background-color: #F0F0E0;
+    }
+    #footer span  {
+        background-color: #E0E0D0;
+    }
+    #menu  {
+        background-color: #E0F0E0;
+    }
+    #menu span  {
+        background-color: #D0E0D0;
+    }
+    #container  {
+        background-color: #E0F0FF;
+    }
+    #container span  {
+        background-color: #D0E0F8;
+    }
+</style>
+
+
+</body>
+</html>

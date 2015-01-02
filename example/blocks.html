@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Locate.js example</title>
+    <script type="text/javascript" src="../locate.js"></script>
+    <script type="text/javascript" src="example.js"></script>
+</head>
+<body>
+
+
+<div locate="maxBottom=0; locateBlock(this);">A</div>
+<div locate="locateBlock(this);">B</div>
+<div locate="locateBlock(this);">C</div>
+<div locate="locateBlock(this);">D</div>
+<div locate="locateBlock(this);">E</div>
+<div locate="locateBlock(this);">F</div>
+<div locate="locateBlock(this);">G</div>
+<div locate="locateBlock(this);">H</div>
+<div locate="locateBlock(this);">I</div>
+<div locate="locateBlock(this);">J</div>
+<div locate="locateBlock(this);">K</div>
+<div locate="locateBlock(this);">L</div>
+
+
+
+<style type=text/css>
+    div  {
+        background-color: #e5f3fa;
+        color: #000080;
+        font-weight: bold;
+        padding: 10px;
+    }
+</style>
+
+
+<script type="text/javascript">
+
+    for (var i=0; i<document.body.children.length; i++)  if (document.body.children[i].tagName=='DIV')  {
+        document.body.children[i].W = Math.random()*200 + 100;
+        document.body.children[i].H = Math.random()*200 + 100;
+    }
+
+    var maxBottom = 0;
+    function locateBlock(el)  {
+        el.w = el.W;
+        el.h = el.H;
+        if (el.prev)  {
+            el.x = el.prev.r() + 30;
+            el.y = el.prev.y;
+            if (el.x && el.r()>el.parent.iw)  {
+                el.x = 0;
+                el.y = maxBottom + 30;
+            }
+        }
+        if (el.b()>maxBottom)  maxBottom = el.b();
+    }
+
+</script>
+
+
+</body>
+</html>

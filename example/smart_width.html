@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Locate.js example</title>
+    <script type="text/javascript" src="../locate.js"></script>
+    <script type="text/javascript" src="example.js"></script>
+</head>
+<body>
+
+
+<div id="left" locate="h=parent.ih; var free=parent.iw-2*DX-CW2-RW1; if (free>LW2) w=LW2; else if (free>LW1) w=free; else w=LW1;">
+    <div locate="w=parent.iw; calcHbyW(); y=(parent.ih-h)/2;">
+        Has minimum and maximum size.
+        It's reduced second.
+    </div>
+</div>
+<div id="center" locate="h=parent.ih; x=prev.r()+DX; var free=parent.iw-x-DX; w = free-LW2>CW2 ? free-LW2 : free-LW1>CW2 ? w=CW2 : free-LW1>=CW1 ? free-LW1 : free+DX>CW1 ? free+DX : CW1">
+    <div locate="w=parent.iw; calcHbyW(); y=(parent.ih-h)/2;">
+        Has minimum and maximum size and extra size append here.
+        It's reduced last.
+    </div>
+</div>
+<div id="right" locate="h=parent.ih; x=prev.r()+DX; w=parent.iw-x; style.display = w<LW1 ? 'none' : 'block';">
+    <div locate="w=parent.iw; calcHbyW(); y=(parent.ih-h)/2;">
+        Has minimum and maximum size.
+        It's reduced first.
+        It will disappear, if there is no space for minimum size.
+    </div>
+</div>
+
+
+
+<style type=text/css>
+    div  {
+        background-color: #eaf4cc;
+        padding: 5px;
+    }
+</style>
+
+
+<script>
+    var DX = 30;    // margin
+    var LW1 = 120;  // min width of left block
+    var LW2 = 300;  // max width of left block
+    var RW1 = 120;  // min width of right block
+    var RW2 = 300;  // max width of right block
+    var CW1 = 120;  // min width of center block
+    var CW2 = 300;  // max width of center block
+</script>
+
+
+</body>
+</html>
