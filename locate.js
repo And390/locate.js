@@ -56,7 +56,7 @@
     }
 
     function needLocateChilds(element)  {
-        //    позиционировать, если содержит дочерние элементы и при этом не содержит текста за исключением пробелов
+        //    позиционировать детей, если содержит дочерние элементы и при этом не содержит текста за исключением пробелов
         var hasChildElements = false;
         for (var child=element.firstChild; child; child=child.nextSibling)
             if (child.nodeType==1)  hasChildElements = true;
@@ -182,13 +182,13 @@
                 if (!needLocate(child))  continue;
                 child.parent = element;
                 child.prev = childPrev;
-                if (childPrev!=undefined)  childPrev.next = child;
+                if (childPrev!==undefined)  childPrev.next = child;
+                else  element.child = child;
                 childPrev = child;
                 result = process_(child, iteration) || result;
                 if (child.r()>element.iw)  {  element.iw = child.r();  element.w = element.iw + element.subW();  }
                 if (child.b()>element.ih)  {  element.ih = child.b();  element.h = element.ih + element.subH();  }
             }
-        element.child = childPrev;
 
         //    set element styles
         element.applyLeft();
